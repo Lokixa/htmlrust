@@ -63,25 +63,25 @@ mod test {
             assert!(head.parent.as_ref().unwrap().upgrade().is_some());
         }
     }
-    #[test]
-    fn complex() {
-        let mut html = Html::new("html");
-        Html::add_child(&mut html, Html::new("head"));
-        Html::add_child(&mut html, Html::new("body"));
-        {
-            let html = html.borrow_mut();
-            {
-                let mut head = html.get_child("head").unwrap();
-                Html::add_child(&mut head, Html::new("meta"));
-                Html::add_child(&mut head, Html::new("meta"));
-                Html::add_child(&mut head, Html::new("script"));
-            }
-            {
-                let mut body = html.get_child("body").unwrap();
-                Html::add_child(&mut body, Html::new("div"));
-                Html::add_child(&mut body, Html::new("div"));
-                Html::add_child(&mut body, Html::new("a"));
-            }
-        }
-    }
+    // #[test]
+    // fn complex() {
+    //     let mut html = Html::new("html");
+    //     Html::add_child(&mut html, Html::new("head"));
+    //     Html::add_child(&mut html, Html::new("body"));
+    //     {
+    //         let html = html.borrow_mut();
+    //         {
+    //             let mut head = html.get_child("head").unwrap();
+    //             Html::add_child(&mut head, Html::new("meta"));
+    //             Html::add_child(&mut head, Html::new("meta"));
+    //             Html::add_child(&mut head, Html::new("script"));
+    //         }
+    //         {
+    //             let mut body = html.get_child("body").unwrap();
+    //             Html::add_child(&mut body, Html::new("div"));
+    //             Html::add_child(&mut body, Html::new("div"));
+    //             Html::add_child(&mut body, Html::new("a"));
+    //         }
+    //     }
+    // }
 }
